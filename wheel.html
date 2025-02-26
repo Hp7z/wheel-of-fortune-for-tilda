@@ -1,28 +1,27 @@
 <div class="deal-wheel">
     <div class="wheel-background"></div>
     <ul class="spinner"></ul>
-</div>
-
-<!-- Контейнер для отображения подарка и промокода -->
-<div id="result-container" style="display: none;">
+  </div>
+  
+  <!-- Контейнер для отображения подарка и промокода -->
+  <div id="result-container" style="display: none;">
     <h2>Подарок</h2>
     <p id="prize-text"></p>
     <p>Ваш промокод: <strong id="promo-code"></strong></p>
-</div>
-
-<!-- Уведомление о копировании промокода -->
-<div id="notification" style="display: none;">
+  </div>
+  
+  <div id="notification" style="display: none;">
     Промокод скопирован!
 </div>
-
-<style>
-/* Скрываем форму */
-.wheel-form {
-    display: none;
-}
-
-/* Остальные стили остаются без изменений */
-.wheel-background {
+  
+  <style>
+  /* Скрываем форму */
+  .wheel-form {
+      display: none;
+  }
+  
+  /* Остальные стили остаются без изменений */
+  .wheel-background {
     position: absolute;
     top: 51%;
     left: 47%;
@@ -34,185 +33,184 @@
     background-position: center;
     z-index: -1;
     border-radius: 50%;
-}
-
-.deal-wheel {
-    --size: clamp(200px, 80vmin, 500px);
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    width: var(--size);
-    height: var(--size);
-}
-
-.spinner {
-    position: relative;
-    display: grid;
-    grid-template-areas: "spinner";
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: url(https://static.tildacdn.com/tild3932-3765-4633-b639-376437373638/noroot.png) center / cover no-repeat;
-    transform: rotate(calc(var(--rotate, 25) * 1deg));
-    align-items: center;
-    justify-items: center;
-    justify-content: start;
-}
-
-.spinner * {
-    grid-area: spinner;
-}
-
-#result-container {
+  }
+  
+  .deal-wheel {
+      --size: clamp(200px, 80vmin, 500px);
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      width: var(--size);
+      height: var(--size);
+  }
+  
+  .spinner {
+      position: relative;
+      display: grid;
+      grid-template-areas: "spinner";
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: url(https://static.tildacdn.com/tild3932-3765-4633-b639-376437373638/noroot.png) center / cover no-repeat;
+      transform: rotate(calc(var(--rotate, 25) * 1deg));
+      align-items: center;
+      justify-items: center;
+      justify-content: start;
+  }
+  
+  .spinner * {
+      grid-area: spinner;
+  }
+  
+  #result-container {
     font-size: 24px; /* Размер шрифта по умолчанию */
-}
-
-@media (max-width: 1200px) {
-    #result-container {
-        font-size: 20px; /* Размер шрифта для экранов меньше 1200px */
-    }
-}
-
-@media (max-width: 768px) {
-    #result-container {
-        font-size: 16px !important; /* Размер шрифта для экранов меньше 768px */
-    }
-}
-
-@media (max-width: 480px) {
-    #result-container {
-        font-size: 16px !important; /* Размер шрифта для экранов меньше 480px */
-    }
-}
-
-.prize {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 calc(var(--size) / 6) 0 calc(var(--size) / 22);
-    width: 50%;
-    height: 50%;
-    transform-origin: center right;
-    transform: rotate(var(--rotate));
-    user-select: none;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-}
-
-.prize .text {
-    transform: rotate(180deg);
-    font-size: clamp(12px, 2.5vmin, 24px);
-}
-
-.is-spinning .spinner {
-    transition: transform 8s cubic-bezier(0.1, -0.01, 0, 1);
-}
-
-.wheel-pointer {
-    position: absolute;
-    top: 50%;
-    right: -10px;
-    width: clamp(20px, 5vmin, 40px);
-    height: clamp(20px, 5vmin, 40px);
-    background-color: red;
-    clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
-    transform: translateY(-50%);
-    z-index: 10;
-}
-
-.result-container{
-    font-size: 24px;
-}
-
-@media (max-width: 340px) {
-    .prize {
-        padding: 0 calc(var(--size) / 8) 0 calc(var(--size) / 16);
-    }
-}
-
-@media (max-width: 768px) {
-    .deal-wheel {
-        --size: clamp(150px, 70vmin, 400px);
     }
     
-    .result-container{
-        font-size: 16px;
-    }
-
-    .prize .text {
-        font-size: clamp(10px, 3vmin, 18px);
-    }
-
-    .wheel-pointer {
-        right: -5px;
-    }
-}
-
-@media (max-width: 480px) {
-    .deal-wheel {
-        --size: clamp(100px, 70vmin, 350px);
+    @media (max-width: 1200px) {
+        #result-container {
+            font-size: 20px; /* Размер шрифта для экранов меньше 1200px */
+        }
     }
     
+    @media (max-width: 768px) {
+        #result-container {
+            font-size: 16px !important; /* Размер шрифта для экранов меньше 768px */
+        }
+    }
+    
+    @media (max-width: 480px) {
+        #result-container {
+            font-size: 16px !important; /* Размер шрифта для экранов меньше 480px */
+        }
+    }
+  
+  .prize {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 calc(var(--size) / 6) 0 calc(var(--size) / 22);
+      width: 50%;
+      height: 50%;
+      transform-origin: center right;
+      transform: rotate(var(--rotate));
+      user-select: none;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+  }
+  
+  .prize .text {
+      transform: rotate(180deg);
+      font-size: clamp(12px, 2.5vmin, 24px);
+  }
+  
+  .is-spinning .spinner {
+      transition: transform 3s cubic-bezier(0.2, 0.1, 0.1, 1);
+  }
+  
+  .wheel-pointer {
+      position: absolute;
+      top: 50%;
+      right: -10px;
+      width: clamp(20px, 5vmin, 40px);
+      height: clamp(20px, 5vmin, 40px);
+      background-color: red;
+      clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
+      transform: translateY(-50%);
+      z-index: 10;
+  }
+  .result-container{
+      font-size: 24px;
+  }
+  
+  @media (max-width: 340px) {
+      .prize {
+          padding: 0 calc(var(--size) / 8) 0 calc(var(--size) / 16);
+      }
+  }
+  
+  @media (max-width: 768px) {
+      .deal-wheel {
+          --size: clamp(150px, 70vmin, 400px);
+      }
+      
+    .result-container{
+      font-size: 16px;
+        }
+  
+      .prize .text {
+          font-size: clamp(10px, 3vmin, 18px);
+      }
+  
+      .wheel-pointer {
+          right: -5px;
+      }
+  }
+  
+  @media (max-width: 480px) {
+      .deal-wheel {
+          --size: clamp(100px, 70vmin, 350px);
+      }
+      
     .result-container{
         font-size: 16px;
-    }
-
-    .prize .text {
-        font-size: clamp(8px, 2.5vmin, 14px);
-    }
-}
-
-@keyframes selected {
+  }
+  
+      .prize .text {
+          font-size: clamp(8px, 2.5vmin, 14px);
+      }
+  }
+  
+  @keyframes selected {
     25% {
-        transform: scale(1.25);
-        text-shadow: 1vmin 1vmin 0 hsla(0 0% 0% / 0.1);
+      transform: scale(1.25);
+      text-shadow: 1vmin 1vmin 0 hsla(0 0% 0% / 0.1);
     }
     40% {
-        transform: scale(0.92);
-        text-shadow: 0 0 0 hsla(0 0% 0% / 0.2);
+      transform: scale(0.92);
+      text-shadow: 0 0 0 hsla(0 0% 0% / 0.2);
     }
     60% {
-        transform: scale(1.02);
-        text-shadow: 0.5vmin 0.5vmin 0 hsla(0 0% 0% / 0.1);
+      transform: scale(1.02);
+      text-shadow: 0.5vmin 0.5vmin 0 hsla(0 0% 0% / 0.1);
     }
     75% {
-        transform: scale(0.98);
+      transform: scale(0.98);
     }
     85% {
-        transform: scale(1);
+      transform: scale(1);
     }
-}
-
-#notification {
-    position: fixed;
-    top: -60px; /* Начальное положение за пределами экрана */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #4CAF50; /* Зеленый цвет фона */
-    color: white;
-    padding: 15px 30px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    font-size: 16px;
-    transition: top 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    opacity: 0;
-}
-
-#notification.show {
-    top: 20px; /* Положение уведомления на экране */
-    opacity: 1;
-}
-</style>
-
-<script>
+  }
+  
+      #notification {
+        position: fixed;
+        top: -60px; /* Начальное положение за пределами экрана */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #4CAF50; /* Зеленый цвет фона */
+        color: white;
+        padding: 15px 30px;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        font-size: 16px;
+        transition: top 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        opacity: 0;
+    }
+    
+    #notification.show {
+        top: 20px; /* Положение уведомления на экране */
+        opacity: 1;
+    }
+  
+  </style>
+  
+  <script>
 $(document).ready(function () {
     console.log("Документ загружен, начинаем инициализацию.");
 
-    // Скрываем элемент с классом .t396__filter, если он существует
     const filterElement = document.querySelector('.t396__filter');
     if (filterElement) {
         console.log("Элемент .t396__filter найден, скрываем его.");
@@ -221,9 +219,8 @@ $(document).ready(function () {
         console.log("Элемент .t396__filter не найден.");
     }
 
-    let isWheelSpinning = false; // Флаг, указывающий, вращается ли колесо
+    let isWheelSpinning = false;
 
-    // Массив призов с их весами (вероятностью выпадения)
     const prizes = [
         { text: "Скидка 5%", weight: 100 },
         { text: "Паровая швабра", weight: 2, displayText: "Подарок" },
@@ -233,7 +230,6 @@ $(document).ready(function () {
         { text: "Электрический чайник", weight: 2, displayText: "Подарок" },
     ];
 
-    // Создаем взвешенный массив призов на основе их весов
     const weightedPrizes = [];
     prizes.forEach((prize) => {
         for (let i = 0; i < prize.weight; i++) {
@@ -242,7 +238,6 @@ $(document).ready(function () {
     });
     console.log("Массив weightedPrizes создан:", weightedPrizes);
 
-    // Получаем элементы колеса и спиннера
     const wheel = document.querySelector(".deal-wheel");
     const spinner = wheel?.querySelector(".spinner");
 
@@ -253,17 +248,15 @@ $(document).ready(function () {
         console.log("Элементы .deal-wheel и .spinner найдены.");
     }
 
-    // Рассчитываем угол для каждого приза
     const prizeSlice = 360 / prizes.length;
     console.log("Угол для каждого приза (prizeSlice):", prizeSlice);
 
-    const spinClass = "is-spinning"; // Класс для анимации вращения
-    const selectedClass = "selected"; // Класс для выбранного приза
+    const spinClass = "is-spinning";
+    const selectedClass = "selected";
 
-    let rotation = 0; // Текущий угол вращения
-    let prizeNodes; // Элементы призов на колесе
+    let rotation = 0;
+    let prizeNodes;
 
-    // Функция для создания элементов призов на колесе
     const createPrizeNodes = () => {
         console.log("Создание элементов призов...");
         prizes.forEach((prize, i) => {
@@ -279,7 +272,6 @@ $(document).ready(function () {
         });
     };
 
-    // Функция для настройки колеса
     const setupWheel = () => {
         console.log("Настройка колеса...");
         createPrizeNodes();
@@ -287,31 +279,27 @@ $(document).ready(function () {
         console.log("Элементы призов созданы:", prizeNodes);
     };
 
-    // Функция для генерации случайного числа в диапазоне
     const spinertia = (min, max) => {
         const result = Math.floor(Math.random() * (max - min + 1)) + min;
         console.log("Сгенерировано случайное число для анимации:", result);
         return result;
     };
 
-    // Функция для запуска вращения колеса
     const spinWheel = (prize = null, promoCode = null) => {
         console.log("Запуск колеса...");
-
+    
         if (prize && promoCode) {
             console.log("Используем сохраненные подарок и промокод:", prize, promoCode);
             selectPrize(prize, promoCode);
         }
-
-        // Генерируем случайный угол вращения
-        rotation = Math.floor(Math.random() * 360 + spinertia(2000, 5000)) + 20;
+    
+        rotation = Math.floor(Math.random() * 360 + spinertia(1000, 2000)) + 20; // Уменьшен диапазон
         console.log("Угол вращения:", rotation);
         prizeNodes.forEach((prize) => prize.classList.remove(selectedClass));
         wheel.classList.add(spinClass);
         spinner.style.setProperty("--rotate", rotation);
         console.log("Колесо запущено, добавлен класс is-spinning.");
-
-        // Обработчик завершения анимации
+    
         spinner.addEventListener("transitionend", () => {
             console.log("Анимация завершена.");
             rotation %= 360;
@@ -324,10 +312,8 @@ $(document).ready(function () {
         }, { once: true });
     };
 
-    // Функция для выбора приза
     const selectPrize = (prize = null, promoCode = null) => {
         if (!prize || !promoCode) {
-            // Если приз и промокод не переданы, выбираем случайный приз
             const randomIndex = Math.floor(Math.random() * weightedPrizes.length);
             prize = weightedPrizes[randomIndex].text;
             promoCode = `PROMO-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
@@ -336,7 +322,6 @@ $(document).ready(function () {
         showResult(prize, promoCode);
         updateTextBlock();
 
-        // Добавляем возможность копирования промокода
         const promoCodeElement = document.getElementById('promo-code');
         if (promoCodeElement) {
             promoCodeElement.style.cursor = 'pointer';
@@ -346,11 +331,9 @@ $(document).ready(function () {
         }
     };
 
-    // Функция для отображения результата
     const showResult = (prize, promoCode) => {
         console.log("Функция showResult вызвана с призом:", prize, "и промокодом:", promoCode);
 
-        // Находим форму и скрытые поля для приза и промокода
         const tildaForm = document.querySelector('.wheel_form #form861389793');
         if (!tildaForm) {
             console.error("Форма .wheel_form #form861389793 не найдена.");
@@ -367,14 +350,12 @@ $(document).ready(function () {
             console.error("Скрытые поля prize_name или prize_promo не найдены.");
         }
 
-        // Находим блок для отображения результата
         const emailTextBlock = document.querySelector('.tn-atom[field="tn_text_1739881336288"]');
         if (!emailTextBlock) {
             console.error("Блок с field tn_text_1739881336288 не найден.");
             return;
         }
 
-        // Создаем контейнер для отображения результата
         const resultContainer = document.createElement('div');
         resultContainer.id = 'result-container';
         resultContainer.style.cssText = `
@@ -396,7 +377,6 @@ $(document).ready(function () {
             text-align: ${window.innerWidth > 1200 ? 'left' : 'center'};
         `;
 
-        // Заполняем контейнер результатами
         resultContainer.innerHTML = `
             <h3>Ваш подарок:</h3>
             <h2 id="prize-text">${prize}</h2>
@@ -405,7 +385,6 @@ $(document).ready(function () {
             <h3 style="margin-top: 20px;">Для получения подарка писать на почту</h3>
         `;
 
-        // Вставляем контейнер в DOM
         emailTextBlock.parentNode.insertBefore(resultContainer, emailTextBlock);
 
         // Добавляем обработчик события для копирования промокода
@@ -417,48 +396,42 @@ $(document).ready(function () {
             });
         }
 
-        // Плавно скрываем форму и другие элементы
-        tildaForm.style.transition = 'opacity 2s';
+        tildaForm.style.transition = 'opacity 3s';
         tildaForm.style.opacity = '0';
 
         const textBlock = document.querySelector('.tn-atom[field="tn_text_1739881285204"]');
         if (textBlock) {
-            textBlock.style.transition = 'opacity 2s';
+            textBlock.style.transition = 'opacity 3s';
             textBlock.style.opacity = '0';
         }
 
-        emailTextBlock.style.transition = 'opacity 2s';
+        emailTextBlock.style.transition = 'opacity 3s';
         emailTextBlock.style.opacity = '0';
 
-        // Плавно показываем результат
         setTimeout(() => {
             if (textBlock) {
                 textBlock.innerText = "Поздравляем!";
-                textBlock.style.transition = 'opacity 2s';
+                textBlock.style.transition = 'opacity 3s';
                 textBlock.style.opacity = '1';
             }
             resultContainer.style.opacity = '1';
             console.log("Текст 'Поздравляем!' и контейнер результатов отображены.");
         }, 2000);
 
-        // Скрываем блок emailTextBlock через 2 секунды
         setTimeout(() => {
             emailTextBlock.style.display = 'none';
             console.log("Блок emailTextBlock скрыт.");
         }, 2000);
 
-        // Скрываем форму через 2 секунды
         setTimeout(() => {
             tildaForm.style.display = 'none';
             console.log("Форма скрыта.");
         }, 2000);
 
-        // Сохраняем результат в localStorage
         localStorage.setItem('hasSpun', `${prize}|${promoCode}`);
         console.log("Результат сохранен в localStorage:", `${prize}|${promoCode}`);
     };
 
-    // Функция для обновления текстового блока
     const updateTextBlock = () => {
         const textBlock = document.querySelector('.tn-atom[field="tn_text_1739881285204"]');
         const container = document.querySelector('.t396__elem.tn-elem.wheel_text.tn-elem__8613897931739881285204');
@@ -505,7 +478,6 @@ $(document).ready(function () {
         }
     };
 
-    // Функция для копирования промокода в буфер обмена
     const copyPromoCode = (promoCode) => {
         navigator.clipboard.writeText(promoCode)
             .then(() => {
@@ -518,7 +490,6 @@ $(document).ready(function () {
             });
     };
 
-    // Функция для отображения уведомления
     const showNotification = (message, isError = false) => {
         const notification = document.getElementById('notification');
         if (!notification) return;
@@ -542,26 +513,21 @@ $(document).ready(function () {
         }, 2000);
     };
 
-    // Настраиваем колесо
     setupWheel();
 
-    // Проверяем, есть ли сохраненный результат в localStorage
     const savedResult = localStorage.getItem('hasSpun');
     let initialPrize, initialPromoCode;
 
     if (savedResult) {
-        // Если есть, используем сохраненные данные
         [initialPrize, initialPromoCode] = savedResult.split('|');
         console.log("Используем сохраненные данные:", initialPrize, initialPromoCode);
     } else {
-        // Если нет, генерируем новые данные
         const initialPrizeIndex = Math.floor(Math.random() * weightedPrizes.length);
         initialPrize = weightedPrizes[initialPrizeIndex].text;
         initialPromoCode = `PROMO-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
         console.log("Новые данные сгенерированы:", initialPrize, initialPromoCode);
     }
 
-    // Наблюдатель за изменениями в DOM для отслеживания появления формы
     const formObserver = new MutationObserver((mutationsList, observer) => {
         const forms = document.querySelectorAll('.wheel_form');
         forms.forEach((form) => {
@@ -578,7 +544,6 @@ $(document).ready(function () {
                     prizePromoField.value = initialPromoCode;
                     console.log("Скрытые поля формы заполнены.");
 
-                    // Добавляем обработчик нажатия на кнопку формы
                     formButton.addEventListener('click', () => {
                         console.log("Кнопка формы нажата, начинаем наблюдение за поп-апом.");
                         popupObserver.observe(document.body, {
@@ -587,7 +552,6 @@ $(document).ready(function () {
                         });
                     });
 
-                    // Отключаем наблюдатель после выполнения
                     observer.disconnect();
                 } else {
                     console.error("Скрытые поля prize_name или prize_promo не найдены.");
@@ -596,13 +560,11 @@ $(document).ready(function () {
         });
     });
 
-    // Начинаем наблюдение за изменениями в DOM
     formObserver.observe(document.body, {
         childList: true,
         subtree: true,
     });
 
-    // Наблюдатель за появлением поп-апа успешной отправки формы
     const popupObserver = new MutationObserver((mutationsList) => {
         for (const mutation of mutationsList) {
             if (mutation.type === 'childList') {
@@ -625,4 +587,4 @@ $(document).ready(function () {
 
     console.log("Наблюдение за появлением формы и кнопки начато.");
 });
-</script>
+  </script>
